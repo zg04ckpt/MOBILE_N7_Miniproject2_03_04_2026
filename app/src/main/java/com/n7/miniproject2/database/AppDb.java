@@ -58,15 +58,15 @@ public abstract class AppDb extends RoomDatabase {
                                 database.productDao().insert(new Product(0, "Quả táo đỏ", "Táo Fuji ngọt giòn", 60000, "https://hoaquafuji.com/storage/app/media/uploaded-files/tao-4.jpg", "kg", 1));
                                 database.productDao().insert(new Product(0, "Quả táo xanh", "Táo Mỹ nhập khẩu", 75000, "https://hoaquafuji.com/storage/app/media/uploaded-files/t%C3%A1o-2.jpg", "kg", 1));
 
-                                // Dữ liệu mẫu Product - Điện thoại (categoryId = 2)
-                                database.productDao().insert(new Product(0, "iPhone 17 Pro Max", "Cosmic Orange Edition", 35000000, "https://cdn2.fptshop.com.vn/unsafe/iphone_17_pro_max_cosmic_orange_1_a940b68476.png", "chiếc", 2));
-                                database.productDao().insert(new Product(0, "iPhone 15 Plus", "Màu hồng cá tính", 22000000, "https://galaxydidong.vn/wp-content/uploads/2023/09/galaxy-di-dong-ip-15-plus-hong-01.jpg", "chiếc", 2));
-                                database.productDao().insert(new Product(0, "Samsung Galaxy S25 Ultra", "Đỉnh cao công nghệ", 32000000, "https://www.didongmy.com/vnt_upload/product/01_2025/samsung_galaxy_s25_ultra_5g_blue_didongmy_thumb_600x600_1.jpg", "chiếc", 2));
-
-                                // Dữ liệu mẫu Product - Ô tô (categoryId = 3)
-                                database.productDao().insert(new Product(0, "VinFast VF7", "Xe điện hiện đại", 900000000, "https://vinfastvinhnghean.vn/domains/vinfastvinhnghean.vn/files/hinh_xe_VF7/6n9a7257.webp", "chiếc", 3));
-                                database.productDao().insert(new Product(0, "VinFast VF3", "Xe điện mini năng động", 240000000, "https://vinfastotomiennam.com/uploads/images/2024/02/702x526-1708522199-multi_product10-img8771min.jpg", "chiếc", 3));
-                                database.productDao().insert(new Product(0, "Ford Everest", "SUV mạnh mẽ", 1200000000, "https://fordphumy.com.vn/files/vn-sport-billboard-carousel-1-vZmN4WSg2d.jpg", "chiếc", 3));
+//                                // Dữ liệu mẫu Product - Điện thoại (categoryId = 2)
+//                                database.productDao().insert(new Product(0, "iPhone 17 Pro Max", "Cosmic Orange Edition", 35000000, "https://cdn2.fptshop.com.vn/unsafe/iphone_17_pro_max_cosmic_orange_1_a940b68476.png", "chiếc", 2));
+//                                database.productDao().insert(new Product(0, "iPhone 15 Plus", "Màu hồng cá tính", 22000000, "https://galaxydidong.vn/wp-content/uploads/2023/09/galaxy-di-dong-ip-15-plus-hong-01.jpg", "chiếc", 2));
+//                                database.productDao().insert(new Product(0, "Samsung Galaxy S25 Ultra", "Đỉnh cao công nghệ", 32000000, "https://www.didongmy.com/vnt_upload/product/01_2025/samsung_galaxy_s25_ultra_5g_blue_didongmy_thumb_600x600_1.jpg", "chiếc", 2));
+//
+//                                // Dữ liệu mẫu Product - Ô tô (categoryId = 3)
+//                                database.productDao().insert(new Product(0, "VinFast VF7", "Xe điện hiện đại", 900000000, "https://vinfastvinhnghean.vn/domains/vinfastvinhnghean.vn/files/hinh_xe_VF7/6n9a7257.webp", "chiếc", 3));
+//                                database.productDao().insert(new Product(0, "VinFast VF3", "Xe điện mini năng động", 240000000, "https://vinfastotomiennam.com/uploads/images/2024/02/702x526-1708522199-multi_product10-img8771min.jpg", "chiếc", 3));
+//                                database.productDao().insert(new Product(0, "Ford Everest", "SUV mạnh mẽ", 1200000000, "https://fordphumy.com.vn/files/vn-sport-billboard-carousel-1-vZmN4WSg2d.jpg", "chiếc", 3));
                             });
                         }
                     })

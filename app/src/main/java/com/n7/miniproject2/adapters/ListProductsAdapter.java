@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.n7.miniproject2.R;
 import com.n7.miniproject2.dtos.ProductListItemDto;
 import com.n7.miniproject2.listeners.OnItemClicked;
@@ -69,6 +70,10 @@ public class ListProductsAdapter extends RecyclerView.Adapter<ListProductsAdapte
             tvProductName.setText(product.getName());
             tvProductPrice.setText(formatter.format(product.getPrice()) + " VNĐ");
 
+            Glide.with(itemView.getContext())
+                    .load(product.getImageUrl())
+                    .placeholder(android.R.drawable.ic_menu_gallery)
+                    .into(ivProductImage);
 
             itemView.setOnClickListener(v -> {
                 if (onItemClicked != null) {

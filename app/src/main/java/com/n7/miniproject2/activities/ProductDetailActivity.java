@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.bumptech.glide.Glide;
 import com.n7.miniproject2.R;
 import com.n7.miniproject2.database.AppDb;
 import com.n7.miniproject2.database.daos.OrderDao;
@@ -21,6 +22,7 @@ import com.n7.miniproject2.database.daos.ProductDao;
 import com.n7.miniproject2.entities.Product;
 import com.n7.miniproject2.enums.OrderStatus;
 import com.n7.miniproject2.utils.SharedPreferencesUtil;
+import com.n7.miniproject2.utils.UserBarHelper;
 
 import java.text.DecimalFormat;
 import java.util.concurrent.Executors;
@@ -58,6 +60,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         tvProductDescription = findViewById(R.id.tvProductDescription);
         btnBuyNow = findViewById(R.id.btnBuyNow);
         btnBack = findViewById(R.id.btnBack);
+        UserBarHelper.setupUserBar(this);
     }
 
     private void setListeners() {
@@ -71,6 +74,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                 addProductToOrder();
             }
         });
+        UserBarHelper.setupUserBar(this);
     }
 
     @Override
@@ -152,5 +156,11 @@ public class ProductDetailActivity extends AppCompatActivity {
 
             });
         });
+
+        Glide.with(this)
+                .load(product.getImageUrl())
+                .placeholder(android.R.drawable.ic_menu_gallery)
+                .error(android.R.drawable.ic_menu_report_image)
+                .into(ivProductImage);
     }
 }
