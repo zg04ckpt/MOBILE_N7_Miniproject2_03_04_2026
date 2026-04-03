@@ -24,6 +24,7 @@ import com.n7.miniproject2.database.daos.CategoryDao;
 import com.n7.miniproject2.database.daos.ProductDao;
 import com.n7.miniproject2.dtos.ProductListItemDto;
 import com.n7.miniproject2.entities.Category;
+import com.n7.miniproject2.utils.UserBarHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,7 @@ public class ListProductsActivity extends AppCompatActivity {
         initUI();
         setListeners();
         initData();
+        UserBarHelper.setupUserBar(this);
     }
 
     private void initUI() {
@@ -65,6 +67,18 @@ public class ListProductsActivity extends AppCompatActivity {
         rvProducts.setLayoutManager(new LinearLayoutManager(this));
         productsAdapter = new ListProductsAdapter(new ArrayList<>());
         rvProducts.setAdapter(productsAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        UserBarHelper.setupUserBar(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UserBarHelper.setupUserBar(this);
     }
 
     private void setListeners() {

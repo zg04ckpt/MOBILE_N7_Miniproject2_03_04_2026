@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.n7.miniproject2.R;
 import com.n7.miniproject2.activities.LoginActivity;
+import com.n7.miniproject2.utils.SharedPreferencesUtil;
 
 public class UserBarHelper {
     public static final int REQUEST_CODE_LOGIN = 1;
@@ -35,12 +36,13 @@ public class UserBarHelper {
             layoutLoggedOut.setVisibility(View.GONE);
             tvWelcomeUser.setText("Xin chào, " + username);
 
+            // Load ảnh đại diện từ URL bằng Glide
             if (avatarUrl != null && !avatarUrl.isEmpty()) {
                 Glide.with(activity)
                         .load(avatarUrl)
-                        .placeholder(android.R.drawable.ic_menu_report_image)
-                        .error(android.R.drawable.ic_menu_report_image)
-                        .circleCrop()
+                        .placeholder(android.R.drawable.ic_menu_report_image) // Ảnh hiển thị khi đang tải
+                        .error(android.R.drawable.ic_menu_report_image)       // Ảnh hiển thị khi lỗi
+                        .circleCrop()                                         // Cắt ảnh thành hình tròn
                         .into(ivUserAvatar);
             }
 

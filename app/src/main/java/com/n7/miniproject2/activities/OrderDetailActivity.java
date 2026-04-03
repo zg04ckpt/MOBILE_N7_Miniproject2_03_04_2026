@@ -17,6 +17,7 @@ import com.n7.miniproject2.database.AppDb;
 import com.n7.miniproject2.database.daos.OrderDao;
 import com.n7.miniproject2.dtos.OrderDetailDto;
 import com.n7.miniproject2.entities.Order;
+import com.n7.miniproject2.utils.UserBarHelper;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -54,6 +55,7 @@ public class OrderDetailActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        UserBarHelper.setupUserBar(this);
     }
 
     private void initUI() {

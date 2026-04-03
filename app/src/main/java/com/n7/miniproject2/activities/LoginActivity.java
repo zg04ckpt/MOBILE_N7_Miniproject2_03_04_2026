@@ -16,13 +16,12 @@ import com.n7.miniproject2.utils.SharedPreferencesUtil;
 import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
-
     private UserDao userDao;
 
-    private Button btnBack;
-    private EditText etUsername;
-    private EditText etPassword;
-    private Button btnLogin;
+    Button btnBack;
+    EditText etUsername;
+    EditText etPassword;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +41,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        btnBack.setOnClickListener(v -> finish());
+        btnBack.setOnClickListener(v -> {
+            finish();
+        });
 
-        btnLogin.setOnClickListener(v -> login());
+        btnLogin.setOnClickListener(v -> {
+            login();
+        });
     }
 
     private void initVariables() {
@@ -55,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         String username = etUsername.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
+        // Validate cơ bản
         if (TextUtils.isEmpty(username)) {
             Toast.makeText(this, "Vui lòng nhập tên đăng nhập", Toast.LENGTH_SHORT).show();
             etUsername.requestFocus();
@@ -73,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        // Đăng nhập bằng tác vụ nền
         Executors.newSingleThreadExecutor().execute(() -> {
             var user = userDao.getUser(username, password);
             if (user != null) {
@@ -86,7 +91,9 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 });
             } else {
-                runOnUiThread(() -> Toast.makeText(this, "Tên đăng nhập hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show());
+                runOnUiThread(() -> {
+                    Toast.makeText(this, "Tên đăng nhập hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
+                });
             }
         });
     }
